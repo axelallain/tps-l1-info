@@ -32,6 +32,7 @@ def game():
     chaine = ""
     reponse = ""
     i = 0
+    jokers = 1
     
     while not lose:
         chaine = chaine + str(alea())
@@ -49,9 +50,18 @@ def game():
         if reponse == chaine:
             print("Bravo ! On continue.")
 
+        elif reponse.lower() == "joker" and jokers > 0:
+            jokers = 0
+            print("Joker ! La réponse était " + chaine + ", on continue !")
+
         elif reponse != chaine:
             print("Dommage, c'est perdu au bout de " + str(i) + " coups gagnants..\n")
             print("La bonne réponse était : " + chaine)
             lose = True
+            
+            if input("Voulez-vous continuer ? Répondez oui ou non : ").lower() == "oui":
+                i = 0
+                chaine = ""
+                lose = False
 
 game()

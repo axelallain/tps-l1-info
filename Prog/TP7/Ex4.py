@@ -6,16 +6,20 @@ def alea(n):
 def aumoins(n):
     pile = 0
     face = 0
-    i = 0s
+    i = 0
 
-    while not (pile == n and face == n):
-        if alea(2) == 1:
+    while pile != n and face != n:
+
+        lancer = alea(2)
+
+        if lancer == 1:
             face = face + 1
 
-        elif alea(2) == 2:
+        elif lancer == 2:
             pile = pile + 1
 
         i = i + 1
 
+    print("Il aura fallu " + str(i) + " essais pour atteindre " + str(n) + " pile et " + str(n) + " face")
 
 aumoins(100)
